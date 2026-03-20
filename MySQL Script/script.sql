@@ -31,8 +31,8 @@ CREATE INDEX idx_items_user ON items(user_id);
 
 INSERT INTO users (name, email, password, role, active)
 VALUES
-    ("Maximilinano Hillmer", "m.hillmerh@gmail.com", "123456", "Administrador", true),
-    ("Usuario Prueba", "mail.prueba@test.com", "123456", "Usuario", true);
+    ("Maximilinano Hillmer", "m.hillmerh@gmail.com", "$2a$10$D7H5A7edJ4/m98b7IEvF/u0s/Wu20mkhvS4ieLSqmPPYVlm5G6V6y", "Administrador", true),
+    ("Usuario Prueba", "mail.prueba@test.com", "$2a$10$D7H5A7edJ4/m98b7IEvF/u0s/Wu20mkhvS4ieLSqmPPYVlm5G6V6y", "Usuario", true);
 
 INSERT INTO items (title, type, volume, author, editorial, image, user_id)
 VALUES
