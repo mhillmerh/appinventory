@@ -58,6 +58,20 @@
         </li>
 
         <li>
+            <a href="<%= request.getContextPath() %>/user?action=help">
+                <span class="sidebar-icon">❓</span>
+                <span class="sidebar-text">Ayuda</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="<%= request.getContextPath() %>/user?action=donate">
+                <span class="sidebar-icon">💖</span>
+                <span class="sidebar-text">Donar</span>
+            </a>
+        </li>
+
+        <li>
             <a href="<%= request.getContextPath() %>/logout">
                 <span class="sidebar-icon">🚪</span>
                 <span class="sidebar-text">Cerrar sesión</span>
@@ -118,9 +132,11 @@
         </div>
 
         <div class="card-grid">
-            <div class="chart-card">
+            <div class="chart-card" style="text-align:center;">
                 <h2>Mi colección</h2>
-                <canvas id="coleccionChart"></canvas>
+                <div class="chart-container-small">
+                    <canvas id="coleccionChart"></canvas>
+                </div>
             </div>
         </div>
 
@@ -143,7 +159,12 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: true
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
         }
     });
 </script>

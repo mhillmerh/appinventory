@@ -513,6 +513,47 @@ body {
     width: 100% !important;
     height: auto !important;
 }
+
+.chart-container-small {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.chart-container-small canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.info-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.info-card h3 {
+    color: #1e3a5f;
+    margin-bottom: 0.8rem;
+}
+
+.info-card p {
+    color: #4a5568;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.donation-buttons {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
 /* ── Inventario en 3 columnas ───────────────────── */
 .inventory-grid {
     display: grid !important;
@@ -620,4 +661,45 @@ body {
         height: auto;
         min-height: 170px;
     }
+}
+
+.info-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.info-card h3 {
+    color: #1e3a5f;
+    margin-bottom: 0.8rem;
+}
+
+.info-card p {
+    color: #4a5568;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.donation-buttons {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.chart-container-small {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.chart-container-small canvas {
+    width: 100% !important;
+    height: auto !important;
 }

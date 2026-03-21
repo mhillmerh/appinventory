@@ -7,7 +7,9 @@ import com.AppIntentory.service.ItemService;
 import com.AppIntentory.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ public class UserDashboardServlet extends HttpServlet {
     private UserService userService;
 
     @Override
-    public void init() {
+    public void init() throws ServletException {
         this.itemService = new ItemService();
         this.userService = new UserService();
     }
@@ -30,15 +32,29 @@ public class UserDashboardServlet extends HttpServlet {
             throws ServletException, IOException {
 
         User usuarioSesion = (User) request.getSession().getAttribute("usuario");
-        String action = request.getParameter("action");
 
         if (usuarioSesion == null) {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
 
+        String action = request.getParameter("action");
+
         if ("password".equals(action)) {
-            request.getRequestDispatcher("/WEB-INF/views/users/change-password.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/users/change-password.jsp")
+                    .forward(request, response);
+            return;
+        }
+
+        if ("help".equals(action)) {
+            request.getRequestDispatcher("/WEB-INF/views/users/help.jsp")
+                    .forward(request, response);
+            return;
+        }
+
+        if ("donate".equals(action)) {
+            request.getRequestDispatcher("/WEB-INF/views/users/donate.jsp")
+                    .forward(request, response);
             return;
         }
 
@@ -67,7 +83,8 @@ public class UserDashboardServlet extends HttpServlet {
         request.setAttribute("totalComics", totalComics);
         request.setAttribute("totalMangas", totalMangas);
 
-        request.getRequestDispatcher("/WEB-INF/views/users/dashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/views/users/dashboard.jsp")
+                .forward(request, response);
     }
 
     @Override
@@ -101,7 +118,11 @@ public class UserDashboardServlet extends HttpServlet {
                 request.setAttribute("error", "No se pudo actualizar la contraseña");
             }
 
-            request.getRequestDispatcher("/WEB-INF/views/users/change-password.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/users/change-password.jsp")
+                    .forward(request, response);
+            return;
         }
+
+        response.sendRedirect(request.getContextPath() + "/user");
     }
 }
